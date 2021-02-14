@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "82fb5d36-33ad-42a9-9116-249ff8de5335",
+		"name": "jarvis-proto-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST command",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"gt\":150,\"ct\":150,\"rt\":100,\"et\":12}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/command",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"command"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/init",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST close",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/close",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"close"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -17,7 +17,7 @@ void setup() {
   messaging->sendJson("Init system");
 
   LegBuilder legBuilder;
-  bottomMember= new BottomMember(*legBuilder.getLegD(),*legBuilder.getLegG());
+  bottomMember= new BottomMember(legBuilder.getLegD(),legBuilder.getLegG());
 
 
   messaging->sendJson(bottomMember->getPosition());
@@ -55,6 +55,7 @@ void receiveEvent()
     {
       loading = true;
     }
+    delay(10);
   }
   if (payload != "") {
     messaging->readCommands(payload);

@@ -55,3 +55,8 @@ void BlockedMotor::remove(const int& value)
 int BlockedMotor::getPosition() {
   return this->position;
 }
+
+bool BlockedMotor::isTargetReached(int target)
+ {
+   return this->position == target;
+ }

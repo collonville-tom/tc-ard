@@ -8,6 +8,7 @@ class Messaging
   public:
     const char start_bit = '$';
     const char stop_bit = '#';
+    const int doc_size=100;
 
   private:
     DynamicJsonDocument command;

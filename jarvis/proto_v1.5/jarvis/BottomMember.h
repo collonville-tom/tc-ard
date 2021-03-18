@@ -6,10 +6,10 @@
 class BottomMember
 {
     private:
-        Leg legD;
-        Leg legG;
+        Leg* legD;
+        Leg* legG;
     public:
-        BottomMember(const Leg& legD,const Leg& legG);
+        BottomMember(const Leg* legD,const Leg* legG);
         ~BottomMember();
 
         DynamicJsonDocument getPosition();

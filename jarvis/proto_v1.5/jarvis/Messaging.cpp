@@ -1,6 +1,6 @@
 #include "./Messaging.h"
 
-Messaging::Messaging(/* args */):command(512)
+Messaging::Messaging(/* args */):command(doc_size)
 {
   Serial.begin(115200);
 }
@@ -17,7 +17,7 @@ void Messaging::sendJson(DynamicJsonDocument message)
 
 void Messaging::sendJson(const String& message)
 {
-  DynamicJsonDocument response(512);
+  DynamicJsonDocument response(doc_size);
   response["msg"] = message;
   Serial.print(start_bit);
   serializeJson(response, Serial);
@@ -26,14 +26,18 @@ void Messaging::sendJson(const String& message)
 
 void Messaging::readCommands(const String payload)
 {
+  this->sendJson(payload);
   DeserializationError err = deserializeJson(command, payload);
+  this->sendJson(command);
   if (err) {
-    DynamicJsonDocument response(512);
+    DynamicJsonDocument response(doc_size);
     response["error"] = err.c_str();
     sendJson(response);
     docAvailable = false;
+  }else
+  {
+    docAvailable = true;
   }
-  docAvailable = true;
 }
 
 void Messaging::unFlag()

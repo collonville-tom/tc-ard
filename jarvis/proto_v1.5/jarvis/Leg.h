@@ -19,16 +19,17 @@ class Leg
         const BlockedMotor::BlockedMotorInitializer& genou);
     ~Leg();
 
-    void adjustGenou(int targetGenou);
-    void adjustCuisse(int targetCuisse);
-    void adjustRot(int targetRot);
-    void adjustEccart(int targetEccart);
-    void moveTo(Messaging* messaging);
-    DynamicJsonDocument getPosition();
+    void moveTo(const int targetGenou,const int targetCuisse,const int targetRot,const int targetEccart);
+    bool isTargetReached(int targetGenou,int targetCuisse, int targetRot, int targetEccart);
 
+    BlockedMotor getCuisse();
+    BlockedMotor getGenou();
+    BlockedMotor getHancheRot();
+    BlockedMotor getHancheEccart();
 
   private:
-    bool checkTarget(int targetGenou,int targetCuisse, int targetRot, int targetEccart);
+    void adjust(const BlockedMotor& articulation,int targetRot);
+    
 };
 
 #endif

@@ -30,6 +30,7 @@ class BlockedMotor
         void add(const int& value);
         void remove(const int& value);
         int targetFilter(const int& target);
+        bool isTargetReached(int target);
        
 };
 

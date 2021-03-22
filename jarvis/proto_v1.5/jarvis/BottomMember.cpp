@@ -13,15 +13,15 @@ BottomMember::~BottomMember()
 
 DynamicJsonDocument BottomMember::getPosition(){
   DynamicJsonDocument response(512);
-  response["cdt"] = legD->getCuisse().getPosition();
-  response["gdt"] = legD->getGenou().getPosition();
-  response["rdt"] = legD->getHancheRot().getPosition();
-  response["edt"] = legD->getHancheEccart().getPosition();
+  response[legD->getCuisse().getTag()] = legD->getCuisse().getPosition();
+  response[legD->getGenou().getTag()] = legD->getGenou().getPosition();
+  response[legD->getHancheRot().getTag()] = legD->getHancheRot().getPosition();
+  response[legD->getHancheEccart().getTag()] = legD->getHancheEccart().getPosition();
 
-  response["cgt"] = legG->getCuisse().getPosition();
-  response["ggt"] = legG->getGenou().getPosition();
-  response["rgt"] = legG->getHancheRot().getPosition();
-  response["egt"] = legG->getHancheEccart().getPosition();
+  response[legG->getCuisse().getTag()] = legG->getCuisse().getPosition();
+  response[legG->getGenou().getTag()] = legG->getGenou().getPosition();
+  response[legG->getHancheRot().getTag()] = legG->getHancheRot().getPosition();
+  response[legG->getHancheEccart().getTag()] = legG->getHancheEccart().getPosition();
   return response;
 }
 

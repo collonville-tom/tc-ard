@@ -1,15 +1,15 @@
 #include "./BlockedMotor.h"
 
 BlockedMotor::BlockedMotor(const BlockedMotorInitializer& blockedMotorInitializer):
-  servo(), spin(blockedMotorInitializer.spin), min(blockedMotorInitializer.min), max(blockedMotorInitializer.max), position(blockedMotorInitializer.position)
+  servo(), tag(blockedMotorInitializer.tag), spin(blockedMotorInitializer.spin), min(blockedMotorInitializer.min), max(blockedMotorInitializer.max), position(blockedMotorInitializer.position)
 {
   servo.attach(blockedMotorInitializer.pin);
   servo.write(this->position);
 }
 
 
-BlockedMotor::BlockedMotor(const int& pin, const int& spin, const int& min, const int& max, const int& initPosition):
-  servo(), spin(spin), min(min), max(max), position(initPosition)
+BlockedMotor::BlockedMotor(const String& tag,const int& pin, const int& spin, const int& min, const int& max, const int& initPosition):
+  servo(), tag(tag), spin(spin), min(min), max(max), position(initPosition)
 {
   servo.attach(pin);
   servo.write(this->position);
@@ -17,6 +17,10 @@ BlockedMotor::BlockedMotor(const int& pin, const int& spin, const int& min, cons
 
 BlockedMotor::~BlockedMotor()
 {
+}
+
+String BlockedMotor::getTag(){
+  return this->tag;   
 }
 
 int BlockedMotor::targetFilter(const int& target){

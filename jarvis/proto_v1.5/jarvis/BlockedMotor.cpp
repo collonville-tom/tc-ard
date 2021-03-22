@@ -1,15 +1,15 @@
 #include "./BlockedMotor.h"
 
 BlockedMotor::BlockedMotor(const BlockedMotorInitializer& blockedMotorInitializer):
-  servo(), tag(blockedMotorInitializer.tag), spin(blockedMotorInitializer.spin), min(blockedMotorInitializer.min), max(blockedMotorInitializer.max), position(blockedMotorInitializer.position)
+  servo(), tag(blockedMotorInitializer.tag), spin(blockedMotorInitializer.spin), minPosition(blockedMotorInitializer.minPosition), maxPosition(blockedMotorInitializer.maxPosition), position(blockedMotorInitializer.position)
 {
   servo.attach(blockedMotorInitializer.pin);
   servo.write(this->position);
 }
 
 
-BlockedMotor::BlockedMotor(const String& tag,const int& pin, const int& spin, const int& min, const int& max, const int& initPosition):
-  servo(), tag(tag), spin(spin), min(min), max(max), position(initPosition)
+BlockedMotor::BlockedMotor(const String& tag,const int& pin, const int& spin, const int& minPosition, const int& maxPosition, const int& initPosition):
+  servo(), tag(tag), spin(spin), minPosition(minPosition), maxPosition(maxPosition), position(initPosition)
 {
   servo.attach(pin);
   servo.write(this->position);
@@ -23,23 +23,25 @@ String BlockedMotor::getTag(){
   return this->tag;   
 }
 
-int BlockedMotor::targetFilter(const int& target){
-  if(target > this-> max)
-    return this->max;
-  if(target < this-> min)
-    return this->min;
+int BlockedMotor::adaptTarget(Messaging* messaging){
+  int target=messaging->getCommand()[this->getTag()];
+
+  if(target > this-> maxPosition)
+    return this->maxPosition;
+  if(target < this-> minPosition)
+    return this->minPosition;
   return target;   
 }
 
 void BlockedMotor::setPosition(const int& value)
 {
 
-  if (value < this->min)
-    this->position = this->min;
+  if (value < this->minPosition)
+    this->position = this->minPosition;
   else
   {
-    if (value > this->max)
-      this->position = this->max;
+    if (value > this->maxPosition)
+      this->position = this->maxPosition;
     else
       this->position = value;
   }

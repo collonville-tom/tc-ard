@@ -30,13 +30,13 @@ const Leg* LegBuilder::getLegG()
 
 
 
-BlockedMotor::BlockedMotorInitializer LegBuilder::getMotorInit(const String& tag,const int& pin,const int& spin,const int& min,const int& max,const int& initPosition)
+BlockedMotor::BlockedMotorInitializer LegBuilder::getMotorInit(const String& tag,const int& pin,const int& spin,const int& minPosition,const int& maxPosition,const int& initPosition)
 {
     BlockedMotor::BlockedMotorInitializer motorInit;
     motorInit.spin = spin;
     motorInit.pin = pin;
-    motorInit.min = min;
-    motorInit.max = max;
+    motorInit.minPosition = minPosition;
+    motorInit.maxPosition = maxPosition;
     motorInit.position = initPosition;
     motorInit.tag=tag;
     return motorInit;

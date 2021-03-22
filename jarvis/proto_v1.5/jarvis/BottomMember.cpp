@@ -32,15 +32,15 @@ void BottomMember::moveTo(Messaging* messaging)
   donc il faut pour chaque target soit detecter quel target ont a recu et initialiser les autres avec les valeurs par defaut
   */
   
-  int targetGenouD=legD->getGenou().targetFilter(messaging->getCommand()["gdt"]);
-  int targetCuisseD=legD->getCuisse().targetFilter(messaging->getCommand()["cdt"]);
-  int targetRotD=legD->getHancheRot().targetFilter(messaging->getCommand()["rdt"]);
-  int targetEccartD=legD->getHancheEccart().targetFilter(messaging->getCommand()["edt"]);
+  int targetGenouD=legD->getGenou().adaptTarget(messaging);
+  int targetCuisseD=legD->getCuisse().adaptTarget(messaging);
+  int targetRotD=legD->getHancheRot().adaptTarget(messaging);
+  int targetEccartD=legD->getHancheEccart().adaptTarget(messaging);
   
-  int targetGenouG=legG->getGenou().targetFilter(messaging->getCommand()["ggt"]);
-  int targetCuisseG=legG->getCuisse().targetFilter(messaging->getCommand()["cgt"]);
-  int targetRotG=legG->getHancheRot().targetFilter(messaging->getCommand()["rgt"]);
-  int targetEccartG=legG->getHancheEccart().targetFilter(messaging->getCommand()["egt"]);
+  int targetGenouG=legG->getGenou().adaptTarget(messaging);
+  int targetCuisseG=legG->getCuisse().adaptTarget(messaging);
+  int targetRotG=legG->getHancheRot().adaptTarget(messaging);
+  int targetEccartG=legG->getHancheEccart().adaptTarget(messaging);
 
   while( !legD->isTargetReached(targetGenouD,targetCuisseD, targetRotD, targetEccartD) || !legG->isTargetReached(targetGenouG,targetCuisseG, targetRotG, targetEccartG) )
   {

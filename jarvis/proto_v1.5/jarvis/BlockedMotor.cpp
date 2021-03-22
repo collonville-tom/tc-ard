@@ -24,6 +24,9 @@ String BlockedMotor::getTag(){
 }
 
 int BlockedMotor::adaptTarget(Messaging* messaging){
+  if(!messaging->getCommand().containsKey(this->getTag()))
+    return this->getPosition();
+    
   int target=messaging->getCommand()[this->getTag()];
 
   if(target > this-> maxPosition)

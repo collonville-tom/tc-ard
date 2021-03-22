@@ -13,7 +13,7 @@ class LegBuilder
         const Leg* getLegG();
 
     private:
-        BlockedMotor::BlockedMotorInitializer getMotorInit(const String& value,const int& pin,const int& spin,const int& min,const int& max,const int& initPosition);
+        BlockedMotor::BlockedMotorInitializer getMotorInit(const String& value,const int& pin,const int& minPosition,const int& maxPosition,const int& initPosition);
 };
 
 #endif

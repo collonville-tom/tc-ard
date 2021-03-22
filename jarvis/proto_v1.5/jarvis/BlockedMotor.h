@@ -9,7 +9,6 @@ class BlockedMotor
 {
     public:
         typedef struct {
-            int spin;
             int pin;
             int minPosition;
             int maxPosition;
@@ -19,7 +18,6 @@ class BlockedMotor
 
     private:
         Servo servo;
-        int spin;
         int minPosition;
         int maxPosition;
         int position;
@@ -27,7 +25,7 @@ class BlockedMotor
 
     public:
         BlockedMotor(const BlockedMotorInitializer& blockedMotorInitializer);
-        BlockedMotor(const String& tag,const int& pin,const int& spin,const int& minPosition,const int& maxPosition,const int& initPosition);
+        BlockedMotor(const String& tag,const int& pin,const int& minPosition,const int& maxPosition,const int& initPosition);
         ~BlockedMotor();
         void setPosition(const int& value);
         int getPosition();

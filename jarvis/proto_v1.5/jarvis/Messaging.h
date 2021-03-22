@@ -14,7 +14,7 @@ class Messaging
     DynamicJsonDocument command;
     boolean docAvailable = false;
   public:
-    Messaging(/* args */);
+    Messaging();
     ~Messaging();
 
     void sendJson(DynamicJsonDocument message);

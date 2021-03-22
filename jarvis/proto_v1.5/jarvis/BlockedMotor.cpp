@@ -1,15 +1,15 @@
 #include "./BlockedMotor.h"
 
 BlockedMotor::BlockedMotor(const BlockedMotorInitializer& blockedMotorInitializer):
-  servo(), tag(blockedMotorInitializer.tag), spin(blockedMotorInitializer.spin), minPosition(blockedMotorInitializer.minPosition), maxPosition(blockedMotorInitializer.maxPosition), position(blockedMotorInitializer.position)
+  servo(), tag(blockedMotorInitializer.tag),  minPosition(blockedMotorInitializer.minPosition), maxPosition(blockedMotorInitializer.maxPosition), position(blockedMotorInitializer.position)
 {
   servo.attach(blockedMotorInitializer.pin);
   servo.write(this->position);
 }
 
 
-BlockedMotor::BlockedMotor(const String& tag,const int& pin, const int& spin, const int& minPosition, const int& maxPosition, const int& initPosition):
-  servo(), tag(tag), spin(spin), minPosition(minPosition), maxPosition(maxPosition), position(initPosition)
+BlockedMotor::BlockedMotor(const String& tag,const int& pin,  const int& minPosition, const int& maxPosition, const int& initPosition):
+  servo(), tag(tag), minPosition(minPosition), maxPosition(maxPosition), position(initPosition)
 {
   servo.attach(pin);
   servo.write(this->position);
@@ -53,12 +53,12 @@ void BlockedMotor::setPosition(const int& value)
 
 void BlockedMotor::add(const int& value)
 {
-  this->setPosition(this->getPosition() + (this->spin)*value);
+  this->setPosition(this->getPosition() - value);
 }
 
 void BlockedMotor::remove(const int& value)
 {
-  this->setPosition(this->getPosition() - (this->spin)*value);
+  this->setPosition(this->getPosition() + value);
 }
 
 int BlockedMotor::getPosition() {

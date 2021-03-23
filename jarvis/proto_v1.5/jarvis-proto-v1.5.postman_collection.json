@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "37d22a3d-76d0-4288-9eed-720196763842",
+		"name": "jarvis-proto-v1.5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST move leg D",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cd\": 90,\r\n    \"gd\": 110,\r\n    \"rd\": 90,\r\n    \"ed\": 70\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/command",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"command"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/init",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST close",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/close",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"close"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST move leg G",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cg\": 85,\r\n    \"gg\": 90,\r\n    \"rg\": 100,\r\n    \"eg\": 70\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/command",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"command"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST move leg G init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cg\": 85,\r\n    \"gg\": 90,\r\n    \"rg\": 100,\r\n    \"eg\": 70\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/command",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"command"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST move leg D init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cd\": 90,\r\n    \"gd\": 110,\r\n    \"rd\": 90,\r\n    \"ed\": 70\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/command",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"command"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

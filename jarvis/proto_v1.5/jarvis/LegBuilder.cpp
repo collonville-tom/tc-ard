@@ -11,21 +11,28 @@ LegBuilder::~LegBuilder()
 }
 const Leg* LegBuilder::getLegD()
 {
-  // FIX -1 value spin to remove
+  // 0 arriere,180 avant
   BlockedMotor::BlockedMotorInitializer cuisseDInit= this-> getMotorInit("cd",7,0,180,90);
-    BlockedMotor::BlockedMotorInitializer genouDInit= this-> getMotorInit("gd",6,0,200,110);
-    BlockedMotor::BlockedMotorInitializer hancheDRotInit= this-> getMotorInit("rd",15,30,160,90);
-    BlockedMotor::BlockedMotorInitializer hancheDEccartInit= this-> getMotorInit("ed",14,50,150,75);
-    return new Leg(hancheDRotInit,hancheDEccartInit, cuisseDInit, genouDInit);
+  // 0 avant,180 arriere
+  BlockedMotor::BlockedMotorInitializer genouDInit= this-> getMotorInit("gd",6,0,180,110);
+  // 0 interieur,180 exterieur
+  BlockedMotor::BlockedMotorInitializer hancheDRotInit= this-> getMotorInit("rd",15,0,180,90);
+  // 0 arriere,180 avant
+  BlockedMotor::BlockedMotorInitializer hancheDEccartInit= this-> getMotorInit("ed",14,0,180,70);
+  return new Leg(hancheDRotInit,hancheDEccartInit, cuisseDInit, genouDInit);
 }
 
 const Leg* LegBuilder::getLegG()
-{
-    BlockedMotor::BlockedMotorInitializer cuisseGInit= this-> getMotorInit("cg",4,0,200,90);
-    BlockedMotor::BlockedMotorInitializer genouGInit= this-> getMotorInit("gg",5,0,160,90);
-    BlockedMotor::BlockedMotorInitializer hancheGRotInit= this-> getMotorInit("rg",2,30,170,100);
-    BlockedMotor::BlockedMotorInitializer hancheGEccartInit= this-> getMotorInit("eg",3,40,160,70);
-    return new Leg(hancheGRotInit, hancheGEccartInit, cuisseGInit, genouGInit);
+{ 
+  // 0 avant,180 arriere
+  BlockedMotor::BlockedMotorInitializer cuisseGInit= this-> getMotorInit("cg",4,0,180,85);
+  // 0 arriere,180 avant
+  BlockedMotor::BlockedMotorInitializer genouGInit= this-> getMotorInit("gg",5,0,180,90);
+  // 0 exterieur,180 interieur
+  BlockedMotor::BlockedMotorInitializer hancheGRotInit= this-> getMotorInit("rg",2,0,180,100);
+  // 0 avant,180 arriere
+  BlockedMotor::BlockedMotorInitializer hancheGEccartInit= this-> getMotorInit("eg",3,0,180,70);
+  return new Leg(hancheGRotInit, hancheGEccartInit, cuisseGInit, genouGInit);
 }
 
 

@@ -17,11 +17,11 @@
 String codeVersion = "Version 1.0  Aug 2016 by TonesB";
 
 // WiFi Router Login - change these to your router settings
-const char* SSID = "YourSSID";
-const char* password = "YourPassword";
+const char* SSID = "----";
+const char* password = "----";
 
 // Setup GPIO2
-int pinGPIO2 = 2; //To control LED
+int pinGPIO2 = 4; //To control LED
 int ledStatus = 0; //0=off,1=on,2=dimmed
 
 // Create the ESP Web Server on port 80
